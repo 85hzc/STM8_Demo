@@ -28,24 +28,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
-
-/* Private defines -----------------------------------------------------------*/
-#define CCR1_Val  ((uint16_t)2047)
-#define CCR2_Val  ((uint16_t)1535)
-#define CCR3_Val  ((uint16_t)1023)
-#define CCR4_Val  ((uint16_t)2048)
-
-
-#define LED_GPIO_PORT  (GPIOC)
-
-#define         LED_SYS    GPIO_PIN_6
-#define         LED_ALARM  GPIO_PIN_5
-#define         BEEP       GPIO_PIN_4
+#include "allinc.h"
 
 /* Private function prototypes -----------------------------------------------*/
-static void TIM1_Config(void);
 static void CLK_Config(void);
-static void GPIO_Config(void);
 void Delay(uint16_t nCount);
 
 /* Private functions ---------------------------------------------------------*/
@@ -56,7 +42,7 @@ void main(void)
   CLK_Config();
 
   /* GPIO Configuration ------------------------------------------*/
-  GPIO_Config();
+  LED_Config();
 
 
   //TIM1_Config();
@@ -90,22 +76,6 @@ static void CLK_Config(void)
 
 
 /**
-  * @brief  Configure GPIO for LEDs and buttons available on the evaluation board
-  * @param  None
-  * @retval None
-  */
-static void GPIO_Config(void)
-{
-    /* Initialize LEDs mounted on STM8-128 EVAL board */
-    STM_EVAL_LEDInit(LED_SYS);
-    STM_EVAL_LEDInit(LED_ALARM);
-    GPIO_Init(GPIOC, LED_SYS|LED_ALARM|BEEP, GPIO_MODE_OUT_PP_LOW_FAST);
-
-    /* Switch LEDs On */
-    GPIO_WriteHigh(GPIOC, LED_SYS);
-}
-
-/**
   * @brief Delay
   * @param nCount
   * @retval None
@@ -119,64 +89,6 @@ void Delay(uint16_t nCount)
   }
 }
 
-
-/**
-  * @brief  Configure TIM1 to generate 7 PWM signals with 4 different duty cycles
-  * @param  None
-  * @retval None
-  */
-static void TIM1_Config(void)
-{
-
-   TIM1_DeInit();
-
-  /* Time Base configuration */
-  /*
-  TIM1_Period = 4095
-  TIM1_Prescaler = 0
-  TIM1_CounterMode = TIM1_COUNTERMODE_UP
-  TIM1_RepetitionCounter = 0
-  */
-
-  TIM1_TimeBaseInit(0, TIM1_COUNTERMODE_UP, 4095, 0);
-
-  /* Channel 1, 2,3 and 4 Configuration in PWM mode */
-  
-  /*
-  TIM1_OCMode = TIM1_OCMODE_PWM2
-  TIM1_OutputState = TIM1_OUTPUTSTATE_ENABLE
-  TIM1_OutputNState = TIM1_OUTPUTNSTATE_ENABLE
-  TIM1_Pulse = CCR1_Val
-  TIM1_OCPolarity = TIM1_OCPOLARITY_LOW
-  TIM1_OCNPolarity = TIM1_OCNPOLARITY_HIGH
-  TIM1_OCIdleState = TIM1_OCIDLESTATE_SET
-  TIM1_OCNIdleState = TIM1_OCIDLESTATE_RESET
-  
-  */
-  TIM1_OC1Init(TIM1_OCMODE_PWM2, TIM1_OUTPUTSTATE_ENABLE, TIM1_OUTPUTNSTATE_ENABLE,
-               CCR1_Val, TIM1_OCPOLARITY_LOW, TIM1_OCNPOLARITY_HIGH, TIM1_OCIDLESTATE_SET,
-               TIM1_OCNIDLESTATE_RESET); 
-
-  /*TIM1_Pulse = CCR2_Val*/
-  TIM1_OC2Init(TIM1_OCMODE_PWM2, TIM1_OUTPUTSTATE_ENABLE, TIM1_OUTPUTNSTATE_ENABLE, 
-               CCR2_Val, TIM1_OCPOLARITY_LOW, TIM1_OCNPOLARITY_HIGH, TIM1_OCIDLESTATE_SET, 
-               TIM1_OCNIDLESTATE_RESET);
-
-  /*TIM1_Pulse = CCR3_Val*/
-  TIM1_OC3Init(TIM1_OCMODE_PWM2, TIM1_OUTPUTSTATE_ENABLE, TIM1_OUTPUTNSTATE_ENABLE,
-               CCR3_Val, TIM1_OCPOLARITY_LOW, TIM1_OCNPOLARITY_HIGH, TIM1_OCIDLESTATE_SET,
-               TIM1_OCNIDLESTATE_RESET);
-
-  /*TIM1_Pulse = CCR4_Val*/
-  TIM1_OC4Init(TIM1_OCMODE_PWM2, TIM1_OUTPUTSTATE_ENABLE, CCR4_Val, TIM1_OCPOLARITY_LOW,
-               TIM1_OCIDLESTATE_SET);
-
-  /* TIM1 counter enable */
-  TIM1_Cmd(ENABLE);
-
-  /* TIM1 Main Output Enable */
-  TIM1_CtrlPWMOutputs(ENABLE);
-}
 
 #ifdef USE_FULL_ASSERT
 
@@ -200,4 +112,4 @@ void assert_failed(u8* file, u32 line)
 #endif
 
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+/************************ (C) COPYRIGHT OPPLE *****END OF FILE****/

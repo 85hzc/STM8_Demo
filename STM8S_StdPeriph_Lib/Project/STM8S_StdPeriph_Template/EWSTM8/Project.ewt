@@ -13627,6 +13627,21 @@
     </configuration>
     <group>
         <name>Aplication</name>
+        <file>
+            <name>$PROJ_DIR$\..\USER\led.c</name>
+        </file>
+    </group>
+    <group>
+        <name>Inc</name>
+        <file>
+            <name>$PROJ_DIR$\..\INC\allinc.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\INC\led.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\INC\timer.h</name>
+        </file>
     </group>
     <group>
         <name>StdPeriph_Drivers</name>

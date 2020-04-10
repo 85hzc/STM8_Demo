@@ -262,6 +262,7 @@
                     <state>$PROJ_DIR$\..\..\..\Utilities\STM8S_EVAL</state>
                     <state>$PROJ_DIR$\..\..\..\Utilities\STM8S_EVAL\STM8S-128_EVAL</state>
                     <state>$PROJ_DIR$\..\..\..\Utilities\STM8S_EVAL\Common</state>
+                    <state>E:\STM8\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\INC</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -390,11 +391,11 @@
                 </option>
                 <option>
                     <name>AsmStdIncludeIgnore</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>AsmIncludePath</name>
-                    <state></state>
+                    <state>E:\STM8\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\INC</state>
                 </option>
                 <option>
                     <name>AsmDefines</name>
@@ -611,7 +612,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$\config\lnkstm8s208mb.icf</state>
+                    <state>$TOOLKIT_DIR$\config\lnkstm8s003f3.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -10445,6 +10446,21 @@
     </configuration>
     <group>
         <name>Aplication</name>
+        <file>
+            <name>$PROJ_DIR$\..\USER\led.c</name>
+        </file>
+    </group>
+    <group>
+        <name>Inc</name>
+        <file>
+            <name>$PROJ_DIR$\..\INC\allinc.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\INC\led.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\INC\timer.h</name>
+        </file>
     </group>
     <group>
         <name>StdPeriph_Drivers</name>

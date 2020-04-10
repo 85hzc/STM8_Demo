@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>3907181745</fileChecksum>
+    <fileChecksum>725986223</fileChecksum>
     <configuration>
         <name>STM8AF52Ax</name>
         <outputs />
@@ -222,16 +222,20 @@
             <file>$PROJ_DIR$\..\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_rst.c</file>
             <file>$PROJ_DIR$\..\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_can.c</file>
             <file>$PROJ_DIR$\..\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_spi.c</file>
-            <file>$PROJ_DIR$\..\..\..\..\STM8-DEMO\My_Lib\TIME\time.c</file>
-            <file>$PROJ_DIR$\..\..\..\..\STM8-DEMO\User\main.c</file>
-            <file>$PROJ_DIR$\..\..\..\..\STM8-DEMO\User\pwm.c</file>
+            <file>$PROJ_DIR$\..\INC\allinc.h</file>
+            <file>$PROJ_DIR$\..\INC\led.h</file>
+            <file>$PROJ_DIR$\..\INC\timer.h</file>
+            <file>$PROJ_DIR$\STM8S208\Obj\led.o</file>
+            <file>$PROJ_DIR$\STM8S208\Obj\led.pbi</file>
+            <file>$PROJ_DIR$\STM8S208\Obj\led.__cstat.et</file>
+            <file>$PROJ_DIR$\..\USER\led.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\STM8S208\Exe\Project.out</name>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 90 60 37 33 38 18 22 58 62 70 48 52 41 53 65 54 59 47 71 66 55 56 57 68 12 4</file>
+                    <file> 90 132 60 37 33 38 18 22 58 62 70 48 52 41 53 65 54 59 47 71 66 55 56 57 68 12 4</file>
                 </tool>
             </inputs>
         </file>
@@ -362,11 +366,11 @@
             <inputs>
                 <tool>
                     <name>ICCSTM8</name>
-                    <file> 40 28 20 23 30 31 17 19 21 29 14 32 27 34 24 13 15 25 35 39 26 16 36</file>
+                    <file> 40 28 20 23 30 31 17 19 21 29 14 32 27 34 24 13 15 25 35 39 26 16 36 129 130 131</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 32 30 35 40 19 13 26 28 20 31 29 34 39 36 23 17 21 14 27 24 15 25 16</file>
+                    <file> 24 36 17 23 14 25 21 27 15 16 40 129 28 20 30 31 19 29 32 34 13 35 39 26 130 131</file>
                 </tool>
             </inputs>
         </file>
@@ -865,6 +869,49 @@
                 </tool>
             </outputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\..\USER\led.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 134</file>
+                </tool>
+                <tool>
+                    <name>ICCSTM8</name>
+                    <file> 132</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 133</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCSTM8</name>
+                    <file> 40 28 20 23 30 31 17 19 21 29 14 32 27 34 24 13 15 25 35 39 26 16 36 129 130 131</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_tim6.c</name>
+            <tool>ICCSTM8</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_tim5.c</name>
+            <tool>ICCSTM8</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_uart4.c</name>
+            <tool>ICCSTM8</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_uart2.c</name>
+            <tool>ICCSTM8</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_adc1.c</name>
+            <tool>ICCSTM8</tool>
+        </forcedrebuild>
     </configuration>
     <configuration>
         <name>STM8S903</name>
